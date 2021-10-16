@@ -36,7 +36,7 @@ function operate(a, b, op) {
     }
 }
 
-function screenRefresh() {
+function screenClear() {
     screen.innerText = '';
     displayValue = 'none';
 }
@@ -44,7 +44,7 @@ function screenRefresh() {
 const NumBtns = buttons.addEventListener('click', function(e){
     if(e.target.dataset.num) {
         if (opPressed) { // if an operator button has already been pressed, refresh the screen for the next value
-            screenRefresh();
+            screenClear();
             opPressed = false;
         }
         screen.innerText += e.target.dataset.num;
@@ -60,11 +60,15 @@ eqlBtn.addEventListener('click', () => {
 });
 
 const operators = buttons.addEventListener('click', (e) => {
-    if (e.target.dataset.op){
+    if (e.target.dataset.op) {
         operator = e.target.dataset.op;
         firstVal = displayValue;
         opPressed = true;
     }
 });
 
-clrBtn.addEventListener('click', screenRefresh);
+clrBtn.addEventListener('click', () => {
+    screenClear();
+    firstVal = '';
+    secondVal = '';
+});
