@@ -3,14 +3,27 @@
     flex-direction: column;
     height: 500px;
     width: 350px;
-    background-color: darkgray;
+    background-color: rgb(253, 97, 69);
 }
 
 .screen {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
     flex-grow: 1;
     margin: 20px;
     background-color: lightgray;
 }
+
+.screen-contents {
+    display: flex;
+    align-items: center;
+    /* background-color: teal; */
+    height: 50px;
+    font-size: 30px;
+}
+
+/* || BUTTONS */
 
 .btn-container {
     flex-grow: 3;
@@ -18,12 +31,17 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    background-color: darkgreen;
+    /* background-color: rgb(190, 70, 49); */
 }
 
 .btn { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 4px;
-    background-color: orange;
+    background-color: #006d89;
+    color: white;
+    box-shadow: rgb(190, 70, 49) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .spacer {
