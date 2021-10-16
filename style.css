@@ -1,8 +1,27 @@
 .calc-container { 
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 350px;
+    background-color: darkgray;
 }
 
-.button-container {
-    display: grid;
+.screen {
+    flex-grow: 1;
+    margin: 20px;
+    background-color: lightgray;
 }
 
+.btn-container {
+    flex-grow: 3;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    background-color: darkgreen;
+}
+
+.btn { 
+    margin: 4px;
+    background-color: orange;
+}
