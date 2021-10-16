@@ -1,3 +1,7 @@
+const screen = document.querySelector('.screen-contents');
+const buttons = document.querySelector('.button-container');
+let displayValue;
+
 function add(a, b) { 
     return a + b;
 }
@@ -14,14 +18,6 @@ function divide(a, b) {
     return a / b;
 }
 
-// function exponentiate(a, b) {
-//     let c = a;
-//     for (let i = 1; i < b; i++) {
-//         a = a * c;
-//     }
-//     return a;
-// }
-
 function operate(a, b, op) {
     switch (op) {
         case '+':
@@ -34,3 +30,13 @@ function operate(a, b, op) {
             return divide(a, b);
     }
 }
+
+window.addEventListener('click', function(e){
+    if(e.target.dataset.num) {
+        screen.innerText += e.target.dataset.num;
+        displayValue = parseInt(screen.innerText);
+    } else if (e.target.dataset.clr) {
+        screen.innerText = '';
+        displayValue = 'none';
+    }
+})
