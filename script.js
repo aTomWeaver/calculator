@@ -1,13 +1,11 @@
 const screen = document.querySelector('.screen-contents');
 const buttons = document.querySelector('.btn-container');
 const eqlBtn = document.getElementById('equals');
-const plusBtn = document.getElementById('plus');
-const minusBtn = document.getElementById('minus');
-const timesBtn = document.getElementById('times');
-const divideBtn = document.getElementById('divide');
+const clrBtn = document.getElementById('clear');
 
 let displayValue;
 let firstVal, secondVal, operator;
+let opPressed = false;
 
 function add(a, b) { 
     return a + b;
@@ -38,51 +36,35 @@ function operate(a, b, op) {
     }
 }
 
-const NumsAndClearBtns = buttons.addEventListener('click', function(e){
+function screenRefresh() {
+    screen.innerText = '';
+    displayValue = 'none';
+}
+
+const NumBtns = buttons.addEventListener('click', function(e){
     if(e.target.dataset.num) {
-            screen.innerText += e.target.dataset.num;
-            displayValue = parseInt(screen.innerText);
-    } else if (e.target.dataset.clr) {
-        screen.innerText = '';
-        displayValue = 'none';
-    }
-})
+        if (opPressed) { // if an operator button has already been pressed, refresh the screen for the next value
+            screenRefresh();
+            opPressed = false;
+        }
+        screen.innerText += e.target.dataset.num;
+        displayValue = parseInt(screen.innerText);
+    } 
+});
 
 eqlBtn.addEventListener('click', () => {
     if (firstVal) {
         secondVal = displayValue;
         screen.innerText = operate(firstVal, secondVal, operator);
-    } 
+    }
 });
 
-plusBtn.addEventListener('click', () => {
-    operator = '+'
-    firstVal = displayValue;
-    // clear the screen
-    screen.innerText = '';
-    displayValue = 'none';
+const operators = buttons.addEventListener('click', (e) => {
+    if (e.target.dataset.op){
+        operator = e.target.dataset.op;
+        firstVal = displayValue;
+        opPressed = true;
+    }
 });
 
-minusBtn.addEventListener('click', () => {
-    operator = '-'
-    firstVal = displayValue;
-    // clear the screen
-    screen.innerText = '';
-    displayValue = 'none';
-});
-
-timesBtn.addEventListener('click', () => {
-    operator = '*'
-    firstVal = displayValue;
-    // clear the screen
-    screen.innerText = '';
-    displayValue = 'none';
-});
-
-divideBtn.addEventListener('click', () => {
-    operator = '/'
-    firstVal = displayValue;
-    // clear the screen
-    screen.innerText = '';
-    displayValue = 'none';
-});
+clrBtn.addEventListener('click', screenRefresh);
