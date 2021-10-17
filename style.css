@@ -13,7 +13,6 @@ body {
     width: 350px;
     border-radius: 10px;
     background-color: rgb(253, 97, 69);
-    /* box-shadow: rgb(134, 134, 134) 5px 5px 6px, rgba(123, 123, 123, 0.23) 0px 3px 6px; */
 }
 
 .screen {
@@ -44,7 +43,8 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    /* background-color: rgb(190, 70, 49); */
+    background-color: rgba(218, 85, 61, 0.483);
+    border-radius: 10px;
 }
 
 .btn { 
@@ -55,15 +55,15 @@ body {
     background-color: #006d89;
     color: white;
     border-radius: 10px;
-    box-shadow: rgb(190, 70, 49) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgb(190, 70, 49) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 4px;
 }
 
 .op {
     background-color: orange;
 }
 
-.equals {
-    background-color: green;
+#equals {
+    background-color: rgb(14, 127, 14);
 }
 
 .spacer {
