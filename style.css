@@ -1,3 +1,11 @@
+body {
+    background-color: rgb(53, 54, 72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
 .calc-container { 
     display: flex;
     flex-direction: column;
@@ -5,6 +13,7 @@
     width: 350px;
     border-radius: 10px;
     background-color: rgb(253, 97, 69);
+    /* box-shadow: rgb(134, 134, 134) 5px 5px 6px, rgba(123, 123, 123, 0.23) 0px 3px 6px; */
 }
 
 .screen {
@@ -24,6 +33,7 @@
     /* background-color: teal; */
     height: 50px;
     font-size: 30px;
+    color:rgb(53, 54, 72);
 }
 
 /* || BUTTONS */
@@ -48,10 +58,32 @@
     box-shadow: rgb(190, 70, 49) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+.op {
+    background-color: orange;
+}
+
+.equals {
+    background-color: green;
+}
+
 .spacer {
     grid-area: 1 / 2 / span 1 / span 2;
 }
 
+#op-container {
+    grid-area: 1 / 4 / 5 / 5;
+    display: flex;
+    flex-direction: column;
+}
+
+#op-container > div {
+    flex-grow: 1;
+}
+
 #num0 {  
     grid-area: 5 / 1 / span 1/ span 2;
+}
+
+#op-group {
+    background-color: olivedrab;
 }
