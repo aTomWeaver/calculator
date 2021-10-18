@@ -4,7 +4,7 @@ const opContainer = document.getElementById('op-container');
 const eqlBtn = document.getElementById('equals');
 const clrBtn = document.getElementById('clear');
 
-let displayVal = null;
+let displayVal = 0;
 let firstVal = null;
 let secondVal = null;
 let operator = null;
@@ -32,11 +32,12 @@ function operate(a, b, op) {
         case '/':
             return divide(a, b);
     }
+    nullVals();
 }
 
 function screenClear() {
     screen.innerText = null;
-    displayVal = null;
+    displayVal = 0;
 }
 
 function nullVals() {
@@ -72,6 +73,7 @@ const operators = opContainer.addEventListener('click', (e) => {
         displayVal = parseInt(screen.innerText);
         firstVal = displayVal;
         secondVal = null;
+        operator = e.target.dataset.op;
     } else {
         firstVal = displayVal;
         operator = e.target.dataset.op;
